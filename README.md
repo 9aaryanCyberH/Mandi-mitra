@@ -1,226 +1,281 @@
 # 🌾 Mandi-Mitra
 
-> A simple and modern agricultural market price dashboard for exploring mandi prices across India.
+A web-based agricultural market price platform that helps users check the latest available **mandi prices** for different commodities across Indian states.
 
-Mandi-Mitra is a React-based web application that makes agricultural market price information easier to search, understand, and explore.
+Mandi-Mitra provides a simple interface where users can select a state and commodity to view mandi-wise price information, including minimum, modal, and maximum prices.
 
-Users can select an Indian state and agricultural commodity to view available mandi/APMC price information, including minimum, modal, and maximum prices.
-
----
-
-## 🚀 Live Project
+## 🚀 Live Demo
 
 **Frontend:**  
-https://mandi-mitra.vercel.app/
+https://mandi-mitra-e75pgstn9-9aaryancyberhs-projects.vercel.app/
 
 **Backend API:**  
 https://enaam-web-scraping.onrender.com/
 
-> Replace the Vercel URL above with the actual URL generated after deployment.
-
----
-
 ## ✨ Features
 
-- 🇮🇳 Browse agricultural market data across Indian states
-- 🌾 Select commodities dynamically based on the selected state
-- 🔍 Search mandi prices using a simple interface
-- 🏪 View mandi/APMC information
-- 💰 View minimum, modal, and maximum prices
-- 📊 Automatic price summaries
-- 📈 Compare available prices across markets
-- 📱 Responsive interface for desktop and mobile
-- ⚡ React + Vite frontend
-- 🔗 Connected to a REST API backend
+- 🌾 Search mandi prices by state and commodity
+- 🏪 View prices across different APMCs/mandis
+- 📍 Display district information
+- 💰 Minimum, modal, and maximum price information
+- 📅 Display arrival dates
+- 📊 Price summary and analysis
+- 🔄 Dynamic state and commodity selection
+- 📱 Responsive user interface
+- ⚡ REST API powered backend
+- 🗃️ JSON-based mandi price dataset
+- 🌐 Deployed frontend and backend
 
----
+## 🛠️ Tech Stack
 
-## 🖥️ Application Overview
+### Frontend
 
-Mandi-Mitra provides a simple workflow:
+- React.js
+- Vite
+- JavaScript
+- CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- REST API
+- Puppeteer
+- CORS
+
+### Data Source
+
+- Government of India Open Government Data Platform
+- e-NAM mandi price data
+
+### Deployment
+
+- Vercel — Frontend
+- Render — Backend
+
+## 🏗️ Project Architecture
 
 ```text
-Select State
-     ↓
-Select Commodity
-     ↓
-Search Prices
-     ↓
-View Mandi Results
-     ↓
-Compare Market Prices
+                 ┌──────────────────────┐
+                 │      User / Farmer   │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │   Mandi-Mitra UI     │
+                 │      React + Vite    │
+                 └──────────┬───────────┘
+                            │
+                       REST API
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │    Express Backend   │
+                 │      Node.js         │
+                 └──────────┬───────────┘
+                            │
+                            ▼
+                 ┌──────────────────────┐
+                 │  Mandi Price Data    │
+                 │       JSON           │
+                 └──────────────────────┘
+```
 
-The dashboard displays:
+## 🔄 How It Works
 
-Information	Description
-Mandi / APMC	Agricultural market name
-District	District information when available
-Commodity	Selected agricultural commodity
-Minimum Price	Lowest reported market price
-Modal Price	Modal/representative market price
-Maximum Price	Highest reported market price
-Arrival Date	Arrival date when available
-🏗️ Project Architecture
-                   ┌─────────────────────┐
-                   │     Mandi-Mitra     │
-                   │   React Frontend    │
-                   │      (Vite)         │
-                   └──────────┬──────────┘
-                              │
-                              │ REST API
-                              ▼
-                   ┌─────────────────────┐
-                   │      Express.js     │
-                   │     Backend API     │
-                   └──────────┬──────────┘
-                              │
-                              ▼
-                   ┌─────────────────────┐
-                   │   Mandi Price Data  │
-                   │       JSON          │
-                   └─────────────────────┘
-🛠️ Tech Stack
-Frontend
-React
-Vite
-JavaScript
-HTML5
-CSS3
-Backend
-Node.js
-Express.js
-REST API
-JSON data processing
-Deployment
-Vercel — Frontend
-Render — Backend
-Data Source
+1. The user opens the Mandi-Mitra web application.
+2. The application loads the available states from the backend API.
+3. The user selects a state.
+4. The application retrieves the commodities available for that state.
+5. The user selects a commodity.
+6. A request is sent to the backend.
+7. The backend searches the mandi price dataset.
+8. Matching mandi records are returned to the frontend.
+9. The frontend displays the results in a structured table.
+10. Price statistics are calculated and displayed for easier comparison.
 
-The application works with agricultural mandi-price data obtained through the backend data pipeline based on India's e-NAM / government agricultural market data.
+## 📊 Price Information
 
-📂 Project Structure
-Mandi-mitra/
+For each mandi, Mandi-Mitra can display:
+
+| Field | Description |
+|---|---|
+| Mandi / APMC | Name of the agricultural market |
+| District | District where the mandi is located |
+| Commodity | Name of the agricultural commodity |
+| Minimum Price | Lowest recorded price |
+| Modal Price | Most commonly reported price |
+| Maximum Price | Highest recorded price |
+| Arrival Date | Date of arrival/reporting |
+
+## 📁 Project Structure
+
+```text
+Mandi-Mitra/
 │
 ├── public/
 │
 ├── src/
-│   ├── assets/
 │   ├── App.jsx
 │   ├── App.css
 │   ├── index.css
 │   └── main.jsx
 │
-├── .gitignore
-├── index.html
 ├── package.json
 ├── package-lock.json
 ├── vite.config.js
 └── README.md
-⚙️ Getting Started
-1. Clone the repository
-git clone https://github.com/9aaryanCyberH/Mandi-mitra.git
-2. Enter the project directory
-cd Mandi-mitra
-3. Install dependencies
-npm install
-4. Start the development server
-npm run dev
+```
 
-The application will normally be available at:
+## 🔌 Backend API
 
-http://localhost:5173
-📦 Production Build
+The frontend communicates with the following backend:
 
-To create a production build:
+```text
+https://enaam-web-scraping.onrender.com
+```
 
-npm run build
+### Available Endpoints
 
-To preview the production build locally:
+#### Get available states
 
-npm run preview
-🔌 API Integration
-
-The frontend communicates with the deployed backend API.
-
-Get available states
+```http
 GET /states
-Get commodities for a state
+```
+
+Example:
+
+```text
+https://enaam-web-scraping.onrender.com/states
+```
+
+#### Get commodities for a state
+
+```http
 GET /commodities?state=Punjab
-Search mandi prices
+```
+
+Example:
+
+```text
+https://enaam-web-scraping.onrender.com/commodities?state=Punjab
+```
+
+#### Get mandi price data
+
+```http
 POST /getdata
+```
 
-Example request:
+Request body:
 
+```json
 {
   "state": "Punjab",
   "commodity": "Apple"
 }
+```
 
-The frontend uses these endpoints to dynamically populate the state and commodity selectors and retrieve mandi-price results.
+## 💻 Run Locally
 
-📊 Dashboard Calculations
+### 1. Clone the repository
 
-The dashboard calculates:
+```bash
+git clone https://github.com/9aaryanCyberH/Mandi-mitra.git
+```
 
-Lowest Price
+### 2. Move into the project directory
 
-The minimum valid value among the available minimum prices.
+```bash
+cd Mandi-mitra
+```
 
-Average Modal Price
+### 3. Install dependencies
 
-The average of the available valid modal prices.
+```bash
+npm install
+```
 
-Highest Price
+### 4. Start the development server
 
-The maximum valid value among the available maximum prices.
+```bash
+npm run dev
+```
 
-Invalid or non-numeric price values are excluded from these calculations.
+The application will be available at:
 
-📱 Responsive Design
+```text
+http://localhost:5173
+```
 
-Mandi-Mitra is designed to work across:
+## 📦 Production Build
 
-💻 Desktop
-💻 Laptop
-📱 Mobile
-📟 Tablet
+To create a production build:
 
-The layout automatically adapts the navigation, search form, summary cards, feature cards, tables, and footer for smaller screens.
+```bash
+npm run build
+```
 
-🔒 Security
+To preview the production build locally:
 
-No API credentials or private keys should be stored directly in the frontend source code.
+```bash
+npm run preview
+```
 
-If environment variables are required for development or deployment, they should be stored in .env files and excluded from Git using .gitignore.
+## 🔐 Environment & Security
 
-👨‍💻 Developer
+Sensitive API credentials should never be committed to GitHub.
 
-Aaryan Kumar
+If API credentials are required during development, store them in a `.env` file:
 
-LinkedIn: https://www.linkedin.com/in/aaryan-k-ba3985246/
-GitHub: https://github.com/9aaryanCyberH
-Resume: 
-https://drive.google.com/file/d/1BrrYb8FwXAVyU6mplO27FitPqQi9Lv7F/view
-🎯 Project Goal
+```env
+DATA_GOV_API_KEY=your_api_key_here
+```
 
-The goal of Mandi-Mitra is to provide a clean and accessible interface for exploring agricultural market prices.
+Make sure `.env` is included in `.gitignore`.
 
-Instead of requiring users to work directly with raw datasets or APIs, the application presents the information through a simple search-driven dashboard.
+Never expose API keys directly inside frontend code or public repositories.
 
-📌 Future Improvements
+## 🎯 Project Objective
 
-Potential improvements include:
+The main objective of Mandi-Mitra is to make agricultural market price information easier to access and understand.
 
-📍 District-level filtering
-📅 Historical price trends
-📈 Interactive price charts
-🔎 Advanced market filtering
-🗺️ Mandi location visualization
-📊 More detailed market analytics
-🔄 Automated data updates
-👤 User preferences and saved searches
-📄 License
+Instead of manually searching through large datasets, users can select their state and commodity and quickly compare available mandi prices.
 
-This project is intended for educational and project-development purposes.
+## 🔮 Future Improvements
 
-⭐ If you find this project useful, consider giving the repository a star.
+- 📈 Historical price charts
+- 📍 Location-based mandi recommendations
+- 🔔 Price alerts and notifications
+- 📊 Advanced price analytics
+- 🗺️ Interactive mandi map
+- 🤖 AI-based price trend predictions
+- 📱 Progressive Web App support
+- 🌐 Support for regional languages
+- 🗄️ Migration from JSON storage to a database
+- ⏱️ Automated data updates
+
+## 👨‍💻 Developer
+
+**Aaryan Kumar**
+
+Computer Science Engineering Student
+
+### Links
+
+- LinkedIn:  
+  https://www.linkedin.com/in/aaryan-k-ba3985246/
+
+- GitHub:  
+  https://github.com/9aaryanCyberH
+
+- Resume:  
+  https://drive.google.com/file/d/1BrrYb8FwXAVyU6mplO27FitPqQi9Lv7F/view
+
+## 📜 License
+
+This project is developed for educational and project-based purposes.
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
