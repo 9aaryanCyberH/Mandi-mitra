@@ -8,6 +8,7 @@ Mandi-Mitra provides a simple interface where users can select a state and commo
 
 **Frontend:**  
 Link 1 : https://mandi-mitra-e75pgstn9-9aaryancyberhs-projects.vercel.app/
+
 Link 2: https://mandi-mitra.netlify.app/
 
 **Backend API:**  
